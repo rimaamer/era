@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>from riri</title>
+  <style>
+    body {
+      background-color: #fbf6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+    }
+
+    .gift-container {
+      position: relative;
+      width: 300px;
+      height: 322px;
+      cursor: pointer;
+    }
+
+    .top-part, .bottom-part {
+      width: 100%;
+      height: 160px;
+      position: absolute;
+      left: 0;
+      transition: transform 1s ease;
+      user-select: none;
+      object-fit: cover;
+    }
+
+    .top-part {
+      top: 0;
+      z-index: 2;
+    }
+
+    .bottom-part {
+      top: 160px;
+      z-index: 1;
+    }
+
+    .gift-container.open .top-part {
+      transform: translateY(-120px);
+    }
+
+    .gift-container.open .bottom-part {
+      transform: translateY(120px);
+    }
+
+    .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ed1c60;
+      font-size: 8px; 
+      line-height: 1; 
+      direction: rtl; 
+      opacity: 0;
+      transition: opacity 1s ease 0.5s;
+      font-family: 'Comic Sans MS', cursive;
+      width: 100%;
+      padding: 20px;
+      pointer-events: none;
+    }
+
+    .gift-container.open .message {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .code-box {
+      margin-top: 15px;
+      display: inline-block;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: transparent;
+      border: 2px dashed #ed1c60;
+      filter: blur(5px);
+      transition: all 0.5s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .code-box.revealed {
+      color: #333;
+      filter: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gift-container" onclick="openGift()">
+    <img src="top.png" alt="Top Part" class="top-part" />
+    <img src="bottom.png" alt="Bottom Part" class="bottom-part" />
+
+    <div class="message">
+      وأخيرًا خلصتي !!<br>
+  أقسم بالله إني فخورة فيك، كنتي تحاولين وتضغطين على نفسك، وكفو إنك كنتي قدها وذاكرتي.<br>
+  عارفة إنك مريتي بأيام ضغط وتعب ويمكن حتى كنتي تحسين إنك خلاص، ماعاد تقدرين،<br>
+  بس شوفيك الحين؟ وصلتي لين النهاية.<br>
+  قعدت أفكر وش أقدر أجيب لك، أحترت والله، بس أتمنى تعجبك<br>
+  صح إنها هدية بسيطة، و أنتي تستاهلين شي أكبر من كذا بكثير<br>
+  بس قلت أهم شي تفرحك ولو شوي وتخليك تبتسمين بعد كل ذا التعب<br><br>
+
+  وصدقيني، الدرجة عمرها ما كانت مقياس لتعبك، ولا تحدد قيمتك.<br>
+  اللي كتبه الله لك هو اللي بيجي، سواء جت الدرجة اللي تبينها أو لا،<br>
+  فأهم شيء إنك سويتي اللي عليك وما وقفتي والله فخوره فيك.<br><br>
+
+  والحين جينا عند الهدية:<br><br>
+
+  انسخي الكود الي تحت كامل زي ما هو.<br><br>
+
+  ثم افتحي هذا الرابط: <a href="https://www.roblox.com/redeem" target="_blank">https://www.roblox.com/redeem</a><br><br>
+
+  وسجلي دخول في حسابك ثم بتحصلين مستطيل، الصقي فيه الكود واضغطي "Redeem".<br>
+  وخلاص بتوصلك الهدية 🩷 <br />
+      <div class="code-box" onclick="revealCode(event)">TTPQU-JCZPE-K288D</div>
+    </div>
+  </div>
+
+  <script>
+    function openGift() {
+      document.querySelector('.gift-container').classList.add('open');
+    }
+
+    function revealCode(event) {
+      event.stopPropagation();
+      event.target.classList.add('revealed');
+    }
+  </script>
+
+</body>
+</html>
+
